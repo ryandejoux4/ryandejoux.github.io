@@ -5,27 +5,53 @@
     var navItems = document.querySelectorAll('.nav-link');
 
     if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            var icon = menuBtn.querySelector('i');
-            if(navLinks.classList.contains('active')){
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
+        var icon = menuBtn.querySelector('i');
+
+        // Met à jour l'état du menu et son apparence
+        function toggleMenu(forceClose) {
+            var isOpen = navLinks.classList.contains('active');
+
+            if (forceClose || isOpen) {
+                navLinks.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
+
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
             } else {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
+                navLinks.classList.add('active');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                menuBtn.setAttribute('aria-label', 'Fermer le menu');
+
+                if (icon) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
             }
+        }
+
+        // Ouverture et fermeture avec le bouton
+        menuBtn.addEventListener('click', function() {
+            toggleMenu(false);
         });
 
-        // Ferme le menu au clic sur un lien (très important sur mobile)
+        // Fermeture après sélection d'une rubrique
         navItems.forEach(function(item) {
             item.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                menuBtn.querySelector('i').classList.remove('fa-xmark');
-                menuBtn.querySelector('i').classList.add('fa-bars');
+                toggleMenu(true);
             });
         });
+
+        // Fermeture avec la touche Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                toggleMenu(true);
+            }
+        });
     }
+
 
     /* 2. Animation Fade-in au défilement */
     var elementsToFade = document.querySelectorAll('.rv, .step, .card, .pt');
@@ -46,38 +72,154 @@
 
     /* 3. Animation Fréquence Audio Header */
     var cv = document.getElementById('wave');
+
     if (cv) {
-        var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = 1, mx = -1;
+        var ctx = cv.getContext('2d');
+        var W = 0, H = 0, dpr = 1, mx = -1;
+        var animationId = null;
+        var isVisible = false;
+
+        var reduceMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        );
+
         function size() {
-            dpr = Math.min(2, devicePixelRatio || 1);
-            W = cv.clientWidth; H = cv.clientHeight;
-            cv.width = W * dpr; cv.height = H * dpr;
+            dpr = Math.min(2, window.devicePixelRatio || 1);
+            W = cv.clientWidth;
+            H = cv.clientHeight;
+
+            cv.width = W * dpr;
+            cv.height = H * dpr;
+
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            draw(0);
         }
+
         function draw(t) {
             ctx.clearRect(0, 0, W, H);
-            var gap = W < 520 ? 7 : 9, n = Math.floor(W / gap), cy = H / 2;
+
+            var gap = W < 520 ? 7 : 9;
+            var n = Math.floor(W / gap);
+            var cy = H / 2;
+
             for (var i = 0; i < n; i++) {
-                var x = i * gap + gap / 2, u = i / n;
-                var env = .35 + .65 * Math.abs(Math.sin(u * 7.3 + 1.1) * Math.cos(u * 3.1));
-                var wob = .55 + .45 * Math.sin(t * .0017 + i * .45) * Math.sin(t * .0009 + i * .13);
-                var near = mx >= 0 ? Math.max(0, 1 - Math.abs(x - mx) / (W * .16)) : 0;
+                var x = i * gap + gap / 2;
+                var u = i / n;
+
+                var env = .35 + .65 * Math.abs(
+                    Math.sin(u * 7.3 + 1.1) *
+                    Math.cos(u * 3.1)
+                );
+
+                var wob = reduceMotion.matches
+                    ? 1
+                    : .55 + .45 *
+                        Math.sin(t * .0017 + i * .45) *
+                        Math.sin(t * .0009 + i * .13);
+
+                var near = mx >= 0
+                    ? Math.max(0, 1 - Math.abs(x - mx) / (W * .16))
+                    : 0;
+
                 var a = (env * wob * .8 + near * .55) * (H * .46);
-                
-                ctx.fillStyle = near > .08 ? '#1F3FE0' : (i % 5 === 0 ? '#1F3FE0' : '#9FB0F2');
+
+                ctx.fillStyle = near > .08 || i % 5 === 0
+                    ? '#1F3FE0'
+                    : '#9FB0F2';
+
                 var bw = 3;
+
                 ctx.beginPath();
-                if (ctx.roundRect) { ctx.roundRect(x - bw / 2, cy - a, bw, a * 2, 2); } 
-                else { ctx.rect(x - bw / 2, cy - a, bw, a * 2); }
+
+                if (ctx.roundRect) {
+                    ctx.roundRect(x - bw / 2, cy - a, bw, a * 2, 2);
+                } else {
+                    ctx.rect(x - bw / 2, cy - a, bw, a * 2);
+                }
+
                 ctx.fill();
             }
         }
-        function loop(t) { draw(t); requestAnimationFrame(loop); }
+
+        function loop(t) {
+            draw(t);
+            animationId = requestAnimationFrame(loop);
+        }
+
+        function startAnimation() {
+            if (
+                animationId !== null ||
+                !isVisible ||
+                document.hidden ||
+                reduceMotion.matches
+            ) return;
+
+            animationId = requestAnimationFrame(loop);
+        }
+
+        function stopAnimation() {
+            if (animationId !== null) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+        }
+
+        // Détecte si le canvas est visible à l'écran
+        if ('IntersectionObserver' in window) {
+            var waveObserver = new IntersectionObserver(function(entries) {
+                isVisible = entries[0].isIntersecting;
+
+                if (isVisible) {
+                    startAnimation();
+                } else {
+                    stopAnimation();
+                }
+            });
+
+            waveObserver.observe(cv);
+        } else {
+            isVisible = true;
+        }
+
+        // Pause lorsque l'onglet n'est plus actif
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                stopAnimation();
+            } else {
+                startAnimation();
+            }
+        });
+
+        // Réagit au changement de préférence d'animation
+        reduceMotion.addEventListener('change', function() {
+            stopAnimation();
+            draw(0);
+            startAnimation();
+        });
+
+        // Redimensionnement
+        window.addEventListener('resize', size);
+
+        // Interaction avec le pointeur
+        cv.parentNode.addEventListener('pointermove', function(e) {
+            var r = cv.getBoundingClientRect();
+            mx = e.clientX - r.left;
+
+            if (reduceMotion.matches) {
+                draw(0);
+            }
+        });
+
+        cv.parentNode.addEventListener('pointerleave', function() {
+            mx = -1;
+
+            if (reduceMotion.matches) {
+                draw(0);
+            }
+        });
+
         size();
-        addEventListener('resize', function() { size(); draw(0); });
-        cv.parentNode.addEventListener('pointermove', function(e) { var r = cv.getBoundingClientRect(); mx = e.clientX - r.left; });
-        cv.parentNode.addEventListener('pointerleave', function() { mx = -1; });
-        requestAnimationFrame(loop);
+        startAnimation();
     }
 
     /* 4. Gestion des Projets et Modales */
@@ -85,7 +227,9 @@
         afp: {
             t: "Montage inspiré de l'AFP",
             m: ['Vidéo', 'Montage', 'Rythme'],
-            imgHtml: '<video controls style="width:100%; max-height:100%; border-radius:8px;"><source src="Projets/AFP.mp4" type="video/mp4">Votre navigateur ne supporte pas la vidéo.</video>',
+            /* Intégration du lecteur YouTube iframe (ID de ta vidéo : tVxsfvPUwOw) */
+            video: true,
+            imgHtml: '<div class="yt-wrap"><iframe src="https://www.youtube-nocookie.com/embed/tVxsfvPUwOw?rel=0&playsinline=1" title="Montage : Le Chat Renard (style AFP)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>',
             d: [
                 ['Contexte (BUT MMI)', "Exercice pédagogique d'assemblage et de rythme, à partir d'une banque de véritables rushs fournis."],
                 ['Mon rôle', "Conception de l'ours et réalisation finale du montage. Orientation de la direction artistique sur les codes stricts du reportage d'actualité de l'Agence France-Presse (dynamisme, concision, objectivité visuelle)."],
@@ -127,6 +271,7 @@
     function openModal(k) {
         var o = P[k];
         if (!o) return;
+        dlg.classList.toggle('is-video', !!o.video);
         dMedia.innerHTML = o.imgHtml;
         dt.textContent = o.t;
         dm.innerHTML = o.m.map(function(x) { return '<span class="pill">' + x + '</span>'; }).join('');
@@ -138,11 +283,12 @@
         c.addEventListener('click', function() { openModal(c.getAttribute('data-p')); });
     });
     
-    function closeModal() {
-        var v = dMedia.querySelector('video');
-        if(v) { v.pause(); v.currentTime = 0; }
-        dlg.close();
-    }
+    function closeModal() { dlg.close(); }
+    /* Se déclenche aussi avec la touche Échap : vider la modale coupe la vidéo YouTube */
+    dlg.addEventListener('close', function() {
+        dMedia.innerHTML = '';
+        dlg.classList.remove('is-video');
+    });
     document.getElementById('dx').addEventListener('click', closeModal);
     dlg.addEventListener('click', function(e) { if (e.target === dlg) closeModal(); });
 })();
