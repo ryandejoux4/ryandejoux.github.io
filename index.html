@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Portfolio de Ryan Dejoux, étudiant en BUT MMI à Vichy : vidéo, son, graphisme.">
-    <title>Ryan Dejoux | Portfolio</title>
+    <meta name="description" content="Découvrez mon portfolio : étudiant en BUT MMI à Vichy, je présente mes projets en audiovisuel, vidéo, son et création graphique.">
+    <meta name="theme-color" content="#F3F5FB">
+    <link rel="canonical" href="https://ryandejoux.fr/">
+    <title>Ryan Dejoux | Portfolio audiovisuel et multimédia</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ryan Dejoux | Portfolio">
+    <meta property="og:description" content="Étudiant en BUT MMI à Vichy, découvrez mes projets en audiovisuel, vidéo, son et création graphique.">
+    <meta property="og:url" content="https://ryandejoux.fr/">
+    <meta property="og:image" content="https://ryandejoux.fr/Ryan.jpg">
+    <meta property="og:image:alt" content="Portrait de Ryan Dejoux">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ryan Dejoux | Portfolio">
+    <meta name="twitter:description" content="Mes projets en audiovisuel, vidéo, son et création graphique.">
+    <meta name="twitter:image" content="https://ryandejoux.fr/Ryan.jpg">
+
     
     <link rel="icon" type="image/jpeg" href="Ryan.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +37,13 @@
 <nav class="navbar" role="banner">
     <div class="navbar-in">
         <a class="logo" href="#top" aria-label="Haut de page">R<i>D</i></a>
-        <button class="mobile-menu-btn" id="menu-btn" aria-label="Ouvrir le menu">
+        <button
+    class="mobile-menu-btn"
+    id="menu-btn"
+    aria-label="Ouvrir le menu"
+    aria-expanded="false"
+    aria-controls="nav-links"
+>
             <i class="fa-solid fa-bars"></i>
         </button>
         <div class="nav-links" id="nav-links">
@@ -43,7 +67,7 @@
             <div class="hero-text rv">
                 <div class="badge-stage">Création Audiovisuelle & Numérique</div>
                 <h1 class="name"><span class="l">Ryan</span><span class="b">Dejoux</span></h1>
-                <p class="lede">Étudiant en BUT MMI à Vichy en 2ème année (parcours Création Numérique).</p>
+                <p class="lede">Étudiant en deuxième année de BUT MMI à Vichy, parcours Création Numérique.</p>
             </div>
             <div class="hero-photo rv">
                 <div class="blob two"></div>
@@ -126,6 +150,48 @@
                     </div>
                 </div>
             </div>
+                <!-- COMPÉTENCES COMPLÉMENTAIRES -->
+                <div class="skills-grid rv">
+
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <h3>Créatives</h3>
+                        <ul>
+                            <li>Création de contenus visuels</li>
+                            <li>Conception graphique et mise en page</li>
+                            <li>Montage et narration vidéo</li>
+                            <li>Recherche d'univers visuels</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3>Digitales</h3>
+                        <ul>
+                            <li>Création de contenus numériques</li>
+                            <li>Publications pour les réseaux sociaux</li>
+                            <li>Adaptation aux différents formats</li>
+                            <li>Communication numérique</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <h3>Professionnelles</h3>
+                        <ul>
+                            <li>Travail en équipe</li>
+                            <li>Autonomie et organisation</li>
+                            <li>Gestion de projet</li>
+                            <li>Rigueur et souci du détail</li>
+                        </ul>
+                    </article>
+                </div>
         </div>
     </section>
 
@@ -134,21 +200,18 @@
         <div class="wrap">
             <div class="sec-head rv">
                 <div class="eyebrow">Projets MMI</div>
-                <h2>Quelques rushs, <b>bien montés.</b></h2>
+                <h2>Mes réalisations, <b>de l'idée au rendu.</b></h2>
             </div>
             
             <div class="proj-grid grid-3">
-                <!-- PROJET 1 : VIDÉO (Miniature type YouTube corrigée) -->
+                <!-- PROJET 1 : VIDÉO (Miniature YouTube 16:9 native) -->
                 <button class="card c-afp rv" data-p="afp">
-                    <!-- Image de fond depuis Unsplash pour simuler une belle miniature vidéo -->
-                    <div class="media v-afp" style="background-image: url('https://images.unsplash.com/photo-1516280440502-6c17d23a1c6a?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;">
-                        <span class="lt">REPORTAGE · STYLE AFP</span>
+                    <div class="media v-youtube-thumb">
                         <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                     </div>
                     <div class="meta"><span class="pill">Vidéo</span><span class="pill">DaVinci</span></div>
                     <h3>Montage : "Le Chat Renard" (Style AFP)</h3><span class="more">Voir le détail →</span>
                 </button>
-                
                 
                 <!-- PROJET 2 : AFFICHE -->
                 <button class="card c-aff rv" data-p="aff">
@@ -180,7 +243,6 @@
             </div>
             
             <div class="parcours-grid">
-                <!-- FORMATION -->
                 <div class="path-col">
                     <h3 class="path-title">Formation</h3>
                     <div class="path">
@@ -199,7 +261,6 @@
                     </div>
                 </div>
 
-                <!-- EXPÉRIENCE PRO -->
                 <div class="path-col">
                     <h3 class="path-title">Expérience pro</h3>
                     <div class="path">
@@ -227,7 +288,7 @@
             <div class="eyebrow">Contact</div>
             <h2>Discutons <b>ensemble.</b></h2>
             <p class="contact-desc">
-                Intéressé par mon profil ? Je serais ravi d'échanger avec vous par mail, téléphone ou en visio. Mon CV détaillé est disponible ci-dessous.
+                Intéressé par mon profil ou par l'un de mes projets ? Je serais ravi d'échanger avec vous pour discuter d'une opportunité ou simplement faire connaissance. Retrouvez également mon CV et mon parcours professionnel ci-dessous.
             </p>
             
             <div class="mail-row">
@@ -242,6 +303,10 @@
                 </a>
                 <a class="btn" href="https://www.linkedin.com/in/ryan-dejoux" target="_blank" rel="noopener">
                     <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a class="btn" href="https://www.instagram.com/ryand.pro/"
+                target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i> Instagram
                 </a>
             </div>
             
