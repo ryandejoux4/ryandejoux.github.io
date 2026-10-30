@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Portfolio de Ryan Dejoux, étudiant en BUT MMI à Vichy : vidéo, son, graphisme.">
+    <title>Ryan Dejoux | Portfolio</title>
+    
+    <link rel="icon" type="image/jpeg" href="Ryan.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" role="banner">
+    <div class="navbar-in">
+        <a class="logo" href="#top" aria-label="Haut de page">R<i>D</i></a>
+        <button class="mobile-menu-btn" id="menu-btn" aria-label="Ouvrir le menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="#profil" class="nav-link">Profil</a>
+            <a href="#pistes" class="nav-link">Compétences</a>
+            <a href="#projets" class="nav-link">Projets</a>
+            <a href="#parcours" class="nav-link">Parcours</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<main id="top">
+    <!-- HERO -->
+    <header class="hero wrap section-padding">
+        <div class="floating-element float-1"><i class="fa-solid fa-video"></i></div>
+        <div class="floating-element float-2"><i class="fa-solid fa-headphones-simple"></i></div>
+        <div class="floating-element float-3"><i class="fa-solid fa-pen-nib"></i></div>
+
+        <div class="hero-grid">
+            <div class="hero-text rv">
+                <div class="badge-stage">Création Audiovisuelle & Numérique</div>
+                <h1 class="name"><span class="l">Ryan</span><span class="b">Dejoux</span></h1>
+                <p class="lede">Étudiant en BUT MMI à Vichy en 2ème année (parcours Création Numérique).</p>
+            </div>
+            <div class="hero-photo rv">
+                <div class="blob two"></div>
+                <div class="blob"></div>
+                <div class="portrait" style="background-image: url('Ryan.jpg');"></div>
+                <span class="sticker s1">TV · RADIO · SON</span>
+                <span class="sticker s2">BUT MMI 2</span>
+            </div>
+        </div>
+        <canvas class="wave" id="wave" aria-hidden="true"></canvas>
+    </header>
+
+    <!-- PROFIL -->
+    <section id="profil" class="bg-paper section-padding">
+        <div class="wrap">
+            <div class="sec-head rv">
+                <div class="eyebrow">Profil</div>
+                <h2>Curieux, autonome, <b>méticuleux.</b></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-copy rv">
+                    <p>Passionné par l'univers audiovisuel, je porte un intérêt particulier à la <strong class="highlight">réalisation</strong>, à la <strong class="highlight">production radiophonique</strong> et au traitement du son. Curieux de nature, j'aime aussi m'investir dans la <strong class="highlight">communication numérique</strong> et la création de contenus pour les réseaux sociaux.</p>
+                    <p>Actuellement en deuxième année de BUT MMI à l'IUT de Vichy, je m'épanouis totalement lorsqu'il s'agit de <strong class="highlight">monter, d'optimiser et de donner vie</strong> à des contenus à partir d'une base existante. Mon objectif ? Intégrer une équipe pour participer à des projets concrets, de la <strong class="highlight">captation à la diffusion</strong>, tout en continuant d'apprendre.</p>
+                </div>
+                <aside class="method rv" aria-label="Ma méthode de travail">
+                    <h3>Ce qui me motive</h3>
+                    <div class="step"><i>01</i><strong>L'organisation</strong><span>Préparer mes médias, comprendre un brief et structurer mon espace de travail.</span></div>
+                    <div class="step"><i>02</i><strong>L'expérimentation</strong><span>Tester des coupes, des rythmes ou des compositions pour trouver la meilleure dynamique.</span></div>
+                    <div class="step"><i>03</i><strong>L'exigence</strong><span>Peaufiner l'étalonnage, le mixage ou les alignements pour un rendu final propre.</span></div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUTILS / TIMELINE -->
+    <section id="pistes" class="tracks-sec section-padding">
+        <div class="wrap">
+            <div class="sec-head rv">
+                <div class="eyebrow">Logiciels & Savoir-faire</div>
+                <h2>Ma boîte à outils, <b>posée sur la timeline.</b></h2>
+            </div>
+            
+            <div class="tracks rv" id="tracks">
+                <div class="lane-row">
+                    <div class="lane-label"><span>VIDÉO</span></div>
+                    <div class="lane">
+                        <span class="clip" style="left:0%;width:48%">
+                            <img src="Logo/Davinci.png" alt="DaVinci Resolve" class="brand-icon"> DaVinci Resolve
+                        </span>
+                        <span class="clip alt" style="left:52%;width:40%">Montage & Post-production</span>
+                    </div>
+                </div>
+                <div class="lane-row">
+                    <div class="lane-label"><span>SON</span></div>
+                    <div class="lane">
+                        <span class="clip" style="left:0;width:30%">
+                            <img src="Logo/Auditionn.png" alt="Audition" class="brand-icon"> Audition
+                        </span>
+                        <span class="clip soft" style="left:33%;width:28%">
+                            <img src="Logo/Audacity.png" alt="Audacity" class="brand-icon"> Audacity
+                        </span>
+                        <span class="clip alt" style="left:64%;width:32%"><i class="fa-solid fa-headphones"></i> Prise de son & Mixage</span>
+                    </div>
+                </div>
+                <div class="lane-row">
+                    <div class="lane-label"><span>PAO</span></div>
+                    <div class="lane">
+                        <span class="clip soft" style="left:2%;width:26%">
+                            <img src="Logo/Photoshop.png" alt="Photoshop" class="brand-icon"> Photoshop
+                        </span>
+                        <span class="clip" style="left:30%;width:25%">
+                            <img src="Logo/Illustrator.png" alt="Illustrator" class="brand-icon"> Illustrator
+                        </span>
+                        <span class="clip soft" style="left:57%;width:22%">
+                            <img src="Logo/Indesign.png" alt="InDesign" class="brand-icon"> InDesign
+                        </span>
+                        <span class="clip alt" style="left:81%;width:17%">
+                            <img src="Logo/Canva.png" alt="Canva" class="brand-icon"> Canva
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets" class="bg-light section-padding">
+        <div class="wrap">
+            <div class="sec-head rv">
+                <div class="eyebrow">Projets MMI</div>
+                <h2>Quelques rushs, <b>bien montés.</b></h2>
+            </div>
+            
+            <div class="proj-grid grid-3">
+                <!-- PROJET 1 : VIDÉO (Miniature type YouTube corrigée) -->
+                <button class="card c-afp rv" data-p="afp">
+                    <!-- Image de fond depuis Unsplash pour simuler une belle miniature vidéo -->
+                    <div class="media v-afp" style="background-image: url('https://images.unsplash.com/photo-1516280440502-6c17d23a1c6a?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: center;">
+                        <span class="lt">REPORTAGE · STYLE AFP</span>
+                        <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="meta"><span class="pill">Vidéo</span><span class="pill">DaVinci</span></div>
+                    <h3>Montage : "Le Chat Renard" (Style AFP)</h3><span class="more">Voir le détail →</span>
+                </button>
+                
+                
+                <!-- PROJET 2 : AFFICHE -->
+                <button class="card c-aff rv" data-p="aff">
+                    <div class="media v-aff">
+                        <div style="background-image: url('Projets/Affiche.png'); background-size: cover; background-position: top center; width: 100%; height: 100%; border-radius: 8px;"></div>
+                    </div>
+                    <div class="meta"><span class="pill">Graphisme</span></div>
+                    <h3>Affiche - Musée d'Afrique et d'Asie</h3><span class="more">Voir le détail →</span>
+                </button>
+                
+                <!-- PROJET 3 : CARTE VIP -->
+                <button class="card c-cine rv" data-p="cine">
+                    <div class="media v-cine">
+                        <div style="background-image: url('Projets/Recto.png'); background-size: cover; background-position: center; width: 70%; aspect-ratio: 85/55; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"></div>
+                    </div>
+                    <div class="meta"><span class="pill">Vectoriel</span><span class="pill">Illustrator</span></div>
+                    <h3>Carte VIP "Digital Ciné-Pass"</h3><span class="more">Voir le détail →</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARCOURS -->
+    <section id="parcours" class="bg-paper section-padding">
+        <div class="wrap">
+            <div class="sec-head rv">
+                <div class="eyebrow">Parcours</div>
+                <h2>D'où je <b>viens.</b></h2>
+            </div>
+            
+            <div class="parcours-grid">
+                <!-- FORMATION -->
+                <div class="path-col">
+                    <h3 class="path-title">Formation</h3>
+                    <div class="path">
+                        <div class="pt rv">
+                            <div class="pt-logo" style="background-image: url('Logo/UCA.png');"></div>
+                            <span class="when">2025 - 2028 · En cours</span>
+                            <h4>BUT Métiers du Multimédia et de l'Internet</h4>
+                            <p>IUT Clermont Auvergne, site de Vichy (03). Parcours Création numérique.</p>
+                        </div>
+                        <div class="pt rv">
+                            <div class="pt-logo" style="background-image: url('Logo/Al.png');"></div>
+                            <span class="when">Obtenu en 2025</span>
+                            <h4>Bac général, mention assez bien</h4>
+                            <p>Lycée Albert Londres, Cusset (03).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXPÉRIENCE PRO -->
+                <div class="path-col">
+                    <h3 class="path-title">Expérience pro</h3>
+                    <div class="path">
+                        <div class="pt rv">
+                            <div class="pt-logo" style="background-image: url('Logo/daniel.png');"></div>
+                            <span class="when">Mars 2022</span>
+                            <h4>Daniel Moquet signe vos allées</h4>
+                            <p>Entreprise Dumange (03). Une première immersion en entreprise, éloignée du numérique, mais qui m'a forgé une véritable rigueur et le sens de l'organisation au quotidien.</p>
+                        </div>
+                        <div class="pt rv">
+                            <div class="pt-logo" style="background-image: url('Logo/QC.png');"></div>
+                            <span class="when">Février 2021</span>
+                            <h4>Service Espaces Verts de Cusset</h4>
+                            <p>Découverte du travail de terrain. J'y ai appris l'importance de la collaboration et du respect des consignes, des bases essentielles pour le travail en équipe d'aujourd'hui.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="wrap">
+            <div class="eyebrow">Contact</div>
+            <h2>Discutons <b>ensemble.</b></h2>
+            <p class="contact-desc">
+                Intéressé par mon profil ? Je serais ravi d'échanger avec vous par mail, téléphone ou en visio. Mon CV détaillé est disponible ci-dessous.
+            </p>
+            
+            <div class="mail-row">
+                <a href="mailto:contact@ryandejoux.fr" class="mail-link">
+                    contact@ryandejoux.fr <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="btns">
+                <a class="btn solid" href="CV OFFICIEL (1).pdf" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-file-pdf"></i> Mon CV (PDF)
+                </a>
+                <a class="btn" href="https://www.linkedin.com/in/ryan-dejoux" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                </a>
+            </div>
+            
+            <div class="foot">
+                <span>© 2026 Ryan Dejoux — Création Audiovisuelle & Multimédia</span>
+                <span>Cusset · Vichy (03)</span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<dialog id="dlg" aria-labelledby="dt">
+    <button class="d-close" id="dx" aria-label="Fermer">✕</button>
+    <div class="d-layout">
+        <div class="d-media-pane" id="d-media"></div>
+        <div class="d-text-pane">
+            <div class="meta" id="dm"></div>
+            <h3 id="dt"></h3>
+            <dl class="d-grid" id="dd"></dl>
+        </div>
+    </div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
