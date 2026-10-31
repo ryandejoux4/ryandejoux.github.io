@@ -188,7 +188,7 @@ h2 b { font-weight: 800; color: var(--royal); }
 
 /* Projets */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem; text-align: left; cursor: pointer; transition: transform 0.2s; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem; text-align: left; font: inherit; color: inherit; cursor: pointer; transition: transform 0.2s; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 .card .media { aspect-ratio: 16 / 9; height: auto; background: var(--bg); border-radius: 8px; margin-bottom: 1.5rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;}
 .card h3 { font-family: var(--f-display); font-size: 1.1rem; margin: 1rem 0; line-height: 1.2;}
@@ -208,9 +208,7 @@ h2 b { font-weight: 800; color: var(--royal); }
 .card:hover .play-overlay i { transform: scale(1.1); background: var(--royal); }
 
 .v-aff { background: var(--royal) !important; color: white;}
-.v-cine {
-    background: var(--royal-soft) !important;
-}
+.v-cine { background: var(--royal-soft) !important; }
 
 /* Parcours */
 .parcours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -223,8 +221,15 @@ h2 b { font-weight: 800; color: var(--royal); }
 .pt h4 { font-family: var(--f-display); font-size: 1.1rem; font-weight: 500; margin-bottom: 5px; }
 .pt p { font-size: 0.95rem; color: var(--mute); }
 
-/* Contact */
-.contact { position: relative; background: var(--royal); color: var(--on-royal); padding-block: clamp(4rem, 10vw, 8rem) 2rem; text-align: left; }
+/* Contact - Ajout de overflow:hidden pour corriger le bug du blob qui cache le texte "Espace Vert" */
+.contact { 
+    position: relative; 
+    background: var(--royal); 
+    color: var(--on-royal); 
+    padding-block: clamp(4rem, 10vw, 8rem) 2rem; 
+    text-align: left; 
+    overflow: hidden; 
+}
 .contact::before, .contact::after { content: ""; position: absolute; background: var(--royal-deep); z-index: 0; }
 .contact::before { width: 42vw; max-width: 520px; aspect-ratio: 1; right: -10vw; top: -12%; border-radius: var(--blob-a); }
 .contact::after { width: 22vw; max-width: 260px; aspect-ratio: 1; left: -6vw; bottom: 8%; border-radius: var(--blob-b); opacity: .7; }
@@ -264,10 +269,6 @@ dialog::backdrop { background: rgba(14, 22, 48, 0.8); backdrop-filter: blur(5px)
     color: var(--mute);
     line-height: 1.5;
 }
-.card {
-    font: inherit;
-    color: inherit;
-}
 
 /* MODALE : LECTEUR YOUTUBE 16:9 */
 .yt-wrap { position: relative; width: min(100%, calc(62vh * 16 / 9)); aspect-ratio: 16 / 9; background: #000; }
@@ -283,7 +284,7 @@ dialog.is-video .d-grid { grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
 /* =========================================
-   RESPONSIVE MOBILE CORRIGÉ (ZÉRO DÉCALAGE)
+   RESPONSIVE MOBILE CORRIGÉ (ZÉRO DÉCALAGE ET SCROLL MODALE FIXÉ)
    ========================================= */
 @media (max-width: 850px) {
     .mobile-menu-btn { display: block; }
@@ -320,29 +321,44 @@ dialog.is-video .d-grid { grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; }
     .lane-label { width: 60px; font-size: 0.65rem;}
     .clip { font-size: 0.75rem; padding: 0 8px; }
     
-    /* Boutons et Modale */
+    /* Boutons */
     .contact .btns { flex-direction: column; width: 100%; }
     .contact .btn { width: 100%; justify-content: center; }
     .mail-link { font-size: 1.05rem; word-break: break-all; }
 
-    .d-layout { grid-template-columns: 1fr; max-height: 90vh;}
-    .d-media-pane { height: 260px; flex-shrink: 0;}
-    .d-text-pane { padding: 1.5rem; }
+    /* Modale responsive - Correction Scroll (l'ensemble scrolle de haut en bas) */
+    dialog { width: 100%; max-width: 100%; border-radius: 14px; max-height: 90vh;}
+    .d-layout { 
+        display: flex; 
+        flex-direction: column; 
+        max-height: 90vh;
+        overflow-y: auto; 
+    }
+    .d-media-pane { 
+        height: auto; 
+        min-height: 250px; 
+        flex-shrink: 0;
+        overflow-y: visible; /* on annule le double scroll */
+    }
+    .d-text-pane { 
+        padding: 1.5rem; 
+        overflow-y: visible; /* on annule le double scroll */
+    }
 
-    /* Vidéo : plein largeur, ratio 16:9 exact, texte dessous */
-    dialog { width: 100%; max-width: 100%; border-radius: 14px; }
-    dialog.is-video .d-layout { max-height: 92dvh; }
+    /* Vidéo sur modale mobile */
+    dialog.is-video .d-layout { max-height: 90vh; overflow-y: auto; }
     dialog.is-video .d-media-pane { height: auto; }
-    dialog.is-video .yt-wrap { width: min(100%, calc(62dvh * 16 / 9)); }
+    dialog.is-video .yt-wrap { width: 100%; aspect-ratio: 16/9; }
     dialog.is-video .d-text-pane { padding: 1.5rem; }
     dialog.is-video .d-grid { grid-template-columns: 1fr; }
     .d-close { right: 10px; top: 10px; width: 36px; height: 36px; }
-
+    
     .skills-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
     margin-top: 2rem;
 }
+
 /* Accessibilité : réduction des animations */
 @media (prefers-reduced-motion: reduce) {
     html {
