@@ -232,8 +232,8 @@
             imgHtml: '<div class="yt-wrap"><iframe src="https://www.youtube-nocookie.com/embed/tVxsfvPUwOw?rel=0&playsinline=1" title="Montage : Le Chat Renard (style AFP)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>',
             d: [
                 ['Contexte (BUT MMI)', "Exercice pédagogique d'assemblage et de rythme, à partir d'une banque de véritables rushs fournis."],
-                ['Mon rôle', "Conception de l'ours et réalisation finale du montage. Orientation de la direction artistique sur les codes stricts du reportage d'actualité de l'Agence France-Presse (dynamisme, concision, objectivité visuelle)."],
-                ['Contraintes', "Alternance de séquences informatives et d'interviews posées avec synthés. Format MP4 H264, 1920x1080p."],
+                ['Mon rôle', "Conception et réalisation finale du montage. Orientation de la direction artistique sur les codes stricts du reportage d'actualité de l'Agence France-Presse (dynamisme, concision, objectivité visuelle)."],
+                ['Contraintes', "Alternance de séquences informatives et d'interviews posées avec audio de fond. Format MP4 H264, 1920x1080p."],
                 ['Logiciel', "DaVinci Resolve"]
             ]
         },
@@ -242,8 +242,8 @@
             m: ['Graphisme', 'Typographie'],
             imgHtml: '<div style="background-image: url(\'Projets/Affiche.png\'); background-size: contain; background-repeat: no-repeat; background-position: center; width: 100%; height: 100%; min-height:300px;"></div>',
             d: [
-                ['Contexte', "Commande fictive intégrée à un module de culture artistique, sous la direction de la directrice du Musée des Arts d'Afrique et d'Asie de Vichy. Thème : « Japon - Les saisons du kimono »."],
-                ['Intention', "Dans le monde japonais, le vêtement différencie l'humain des 10 000 autres êtres de la nature. Objectif visuel : lier la beauté florale (monde flottant) à la beauté humaine, en associant kimono, estampes et photographies anciennes."],
+                ['Contexte', "Commande fictive intégrée à un module de culture artistique, sous la direction de la directrice du Musée des Arts d'Afrique et d'Asie de Vichy. Thème : « Japon - Kimonos de saison »."],
+                ['Intention', "Création d'une affiche qui mettent en avant le thème de l'exposition, et donne envie d'aller la voir."],
                 ['Cible & Format', "Tous publics / Format A4 (21 x 29,7 cm)"],
                 ['Logiciels', "Photoshop, Canva"]
             ]
@@ -253,8 +253,7 @@
             m: ['Illustration Vectorielle', 'Print'],
             imgHtml: '<div style="display: flex; flex-direction: column; gap: 20px; align-items: center; justify-content: flex-start; width: 100%; height: 100%; overflow-y: auto; padding: 10px 0;"><img src="Projets/Recto.png" style="max-width: 90%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Recto"><img src="Projets/Verso.png" style="max-width: 90%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Verso"></div>',
             d: [
-                ['Le Projet', "Conception d'une carte de membre VIP annuelle pour un réseau de cinéma. Le but était d'utiliser la transition chromatique pour générer du volume sans redessiner."],
-                ['Ambiance', "Immersion dans l'obscurité d'une salle de cinéma grâce à l'utilisation poussée de dégradés (linéaire, radial, et forme libre) pour simuler la lumière d'ambiance."],
+                ['Le Projet', "Conception d'une carte fictive de membre VIP annuelle pour un réseau de cinéma. Le but était d'utiliser la transition chromatique pour générer du volume sans redessiner."],
                 ['Texture & Identité', "Création d'un motif répétitif (pellicule) en fond avec faible opacité. Mise en page des données VIP et d'un QR code."],
                 ['Contraintes', "Carte de visite 85 x 55 mm (1000 x 685 pixels). Normes d'impression : CMJN, 300 dpi, 5 mm de fond perdu."],
                 ['Logiciel', "Adobe Illustrator"]
