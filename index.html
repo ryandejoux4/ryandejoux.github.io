@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Découvrez mon portfolio : étudiant en BUT MMI à Vichy, je présente mes projets en audiovisuel, vidéo, son et création graphique.">
+    
+    <!-- Sécurité (CSP) mise à jour : 100% local pour les polices, autorisation de la miniature YouTube -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: https://img.youtube.com; frame-src https://www.youtube-nocookie.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+    
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="description" content="Découvrez le portfolio de Ryan Dejoux, étudiant en deuxième année de BUT MMI à Vichy, parcours Création Numérique. Projets en graphisme, vidéo et création multimédia.">
     <meta name="theme-color" content="#F3F5FB">
     <link rel="canonical" href="https://ryandejoux.fr/">
-    <title>Ryan Dejoux | Portfolio audiovisuel et multimédia</title>
+    <title>Ryan Dejoux | Portfolio</title>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ryan Dejoux | Portfolio">
-    <meta property="og:description" content="Étudiant en BUT MMI à Vichy, découvrez mes projets en audiovisuel, vidéo, son et création graphique.">
+    <meta property="og:description" content="Étudiant en deuxième année de BUT MMI à Vichy, parcours Création Numérique. Découvrez mes projets en graphisme, vidéo et création multimédia.">
     <meta property="og:url" content="https://ryandejoux.fr/">
     <meta property="og:image" content="https://ryandejoux.fr/Ryan.jpg">
     <meta property="og:image:alt" content="Portrait de Ryan Dejoux">
@@ -20,60 +25,61 @@
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ryan Dejoux | Portfolio">
-    <meta name="twitter:description" content="Mes projets en audiovisuel, vidéo, son et création graphique.">
+    <meta name="twitter:description" content="Étudiant en BUT MMI à Vichy : découvrez mes projets en graphisme, vidéo et création multimédia.">
     <meta name="twitter:image" content="https://ryandejoux.fr/Ryan.jpg">
 
-    
     <link rel="icon" type="image/jpeg" href="Ryan.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Styles principaux -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar" role="banner">
+<a class="skip-link" href="#profil">Aller au contenu</a>
+
+<header class="navbar">
     <div class="navbar-in">
         <a class="logo" href="#top" aria-label="Haut de page">R<i>D</i></a>
-        <button
-    class="mobile-menu-btn"
-    id="menu-btn"
-    aria-label="Ouvrir le menu"
-    aria-expanded="false"
-    aria-controls="nav-links"
->
-            <i class="fa-solid fa-bars"></i>
+        <button type="button" class="mobile-menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
-        <div class="nav-links" id="nav-links">
+        <nav class="nav-links" id="nav-links" aria-label="Navigation principale">
             <a href="#profil" class="nav-link">Profil</a>
             <a href="#pistes" class="nav-link">Compétences</a>
             <a href="#projets" class="nav-link">Projets</a>
             <a href="#parcours" class="nav-link">Parcours</a>
             <a href="#contact" class="nav-link">Contact</a>
-        </div>
+        </nav>
     </div>
-</nav>
+</header>
 
 <main id="top">
     <!-- HERO -->
     <header class="hero wrap section-padding">
-        <div class="floating-element float-1"><i class="fa-solid fa-video"></i></div>
-        <div class="floating-element float-2"><i class="fa-solid fa-headphones-simple"></i></div>
-        <div class="floating-element float-3"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="floating-element float-1" aria-hidden="true">
+            <i class="fa-solid fa-video"></i>
+        </div>
+        <div class="floating-element float-2" aria-hidden="true">
+            <i class="fa-solid fa-headphones-simple"></i>
+        </div>
+        <div class="floating-element float-3" aria-hidden="true">
+            <i class="fa-solid fa-pen-nib"></i>
+        </div>
 
         <div class="hero-grid">
             <div class="hero-text rv">
-                <div class="badge-stage">Création Audiovisuelle & Numérique</div>
+                <div class="badge-stage">Création Numérique</div>
                 <h1 class="name"><span class="l">Ryan</span><span class="b">Dejoux</span></h1>
-                <p class="lede">Étudiant en deuxième année de BUT MMI à Vichy, parcours Création Numérique.</p>
+                <p class="lede">Étudiant en <strong class="highlight">deuxième année de BUT MMI</strong> à Vichy, parcours Création Numérique.</p>
             </div>
             <div class="hero-photo rv">
                 <div class="blob two"></div>
                 <div class="blob"></div>
-                <div class="portrait" style="background-image: url('Ryan.jpg');"></div>
-                <span class="sticker s1">TV · RADIO · SON</span>
+                <div class="portrait" role="img" aria-label="Portrait de Ryan Dejoux"></div>
+                <span class="sticker s1">GRAPHISME · VIDÉO · AUDIOVISUEL</span>
                 <span class="sticker s2">BUT MMI 2</span>
             </div>
         </div>
@@ -85,18 +91,40 @@
         <div class="wrap">
             <div class="sec-head rv">
                 <div class="eyebrow">Profil</div>
-                <h2>Curieux, autonome, <b>méticuleux.</b></h2>
+                <h2>De la recherche d'idées au rendu final : <b>créer des contenus soignés.</b></h2>
             </div>
             <div class="about-grid">
                 <div class="about-copy rv">
-                    <p>Passionné par l'univers audiovisuel, je porte un intérêt particulier à la <strong class="highlight">réalisation</strong>, à la <strong class="highlight">production radiophonique</strong> et au traitement du son. Curieux de nature, j'aime aussi m'investir dans la <strong class="highlight">communication numérique</strong> et la création de contenus pour les réseaux sociaux.</p>
-                    <p>Actuellement en deuxième année de BUT MMI à l'IUT de Vichy, je m'épanouis totalement lorsqu'il s'agit de <strong class="highlight">monter, d'optimiser et de donner vie</strong> à des contenus à partir d'une base existante. Mon objectif ? Intégrer une équipe pour participer à des projets concrets, de la <strong class="highlight">captation à la diffusion</strong>, tout en continuant d'apprendre.</p>
+                    <p>
+                        Étudiant en deuxième année de <strong class="highlight">BUT Métiers du Multimédia et de l’Internet (MMI) à l'IUT de Vichy</strong>, parcours <strong class="highlight">Création Numérique</strong>,
+                        je travaille sur des contenus graphiques et audiovisuels. J'aime les projets qui partent d'un brief et de références :
+                        <strong class="highlight">chercher des inspirations, tester plusieurs pistes, puis choisir
+                        et affiner la plus juste</strong> pour obtenir un résultat cohérent.
+                    </p>
+
+                    <p>
+                        Au fil de ma formation, je développe des compétences en 
+                        <strong class="highlight">création graphique, montage vidéo, audiovisuel et création de contenus numériques</strong>.
+                        J'ai notamment travaillé avec plusieurs logiciels de la suite Adobe, 
+                        ainsi qu'avec DaVinci Resolve pour le montage vidéo.
+                    </p>
+
+                    <p>
+                        J'utilise également <strong class="highlight">Canva régulièrement</strong>Canva régulièrement dans mes créations personnelles, 
+                        un outil que j'apprécie particulièrement. J'aime prendre le temps de <strong class="highlight">peaufiner mes réalisations</strong> 
+                        , d'ajuster les détails et de soigner le rendu final.
+                    </p>
+
+                    <p>
+                        Je souhaite aujourd'hui <strong class="highlight">mettre mes compétences en pratique en entreprise</strong>, 
+                        participer à des projets concrets et continuer à progresser au sein d'une équipe.
+                    </p>
                 </div>
                 <aside class="method rv" aria-label="Ma méthode de travail">
-                    <h3>Ce qui me motive</h3>
-                    <div class="step"><i>01</i><strong>L'organisation</strong><span>Préparer mes médias, comprendre un brief et structurer mon espace de travail.</span></div>
-                    <div class="step"><i>02</i><strong>L'expérimentation</strong><span>Tester des coupes, des rythmes ou des compositions pour trouver la meilleure dynamique.</span></div>
-                    <div class="step"><i>03</i><strong>L'exigence</strong><span>Peaufiner l'étalonnage, le mixage ou les alignements pour un rendu final propre.</span></div>
+                    <h3>Ma méthode de travail</h3>
+                    <div class="step"><i>01</i><strong>Comprendre et préparer</strong><span>Prendre connaissance du brief, repérer les attentes, rechercher des références et rassembler les éléments nécessaires au projet.</span></div>
+                    <div class="step"><i>02</i><strong>Créer et adapter</strong><span>Mettre en forme des visuels, monter des séquences vidéo et adapter les contenus au support et au public visés.</span></div>
+                    <div class="step"><i>03</i><strong>Soigner le rendu</strong><span>Reprendre les détails, ajuster les choix visuels et vérifier le résultat pour livrer un contenu clair et cohérent.</span></div>
                 </aside>
             </div>
         </div>
@@ -106,92 +134,132 @@
     <section id="pistes" class="tracks-sec section-padding">
         <div class="wrap">
             <div class="sec-head rv">
-                <div class="eyebrow">Logiciels & Savoir-faire</div>
-                <h2>Ma boîte à outils, <b>posée sur la timeline.</b></h2>
+                <div class="eyebrow">Logiciels &amp; Savoir-faire</div>
+                <h2>Ma boîte <b>à outils.</b></h2>
             </div>
-            
+
             <div class="tracks rv" id="tracks">
+
+                <!-- VIDÉO -->
                 <div class="lane-row">
-                    <div class="lane-label"><span>VIDÉO</span></div>
+                    <div class="lane-label">
+                        <span>VIDÉO</span>
+                    </div>
+
                     <div class="lane">
-                        <span class="clip" style="left:0%;width:48%">
-                            <img src="Logo/Davinci.png" alt="DaVinci Resolve" class="brand-icon"> DaVinci Resolve
-                        </span>
-                        <span class="clip alt" style="left:52%;width:40%">Montage & Post-production</span>
+                        <div class="lane-tools">
+                            <span class="clip">
+                                <img src="Logo/Davinci.png" alt="" width="22" height="22" class="brand-icon">
+                                DaVinci Resolve
+                            </span>
+
+                            <span class="clip">
+                                <img src="Logo/Effects.png" alt="" width="22" height="22" class="brand-icon">
+                                After Effects
+                            </span>
+                        </div>
+
+                        <div class="lane-skills">
+                            <span class="clip alt">Montage vidéo</span>
+                            <span class="clip alt">Motion design</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- SON -->
                 <div class="lane-row">
-                    <div class="lane-label"><span>SON</span></div>
+                    <div class="lane-label">
+                        <span>SON</span>
+                    </div>
+
                     <div class="lane">
-                        <span class="clip" style="left:0;width:30%">
-                            <img src="Logo/Auditionn.png" alt="Audition" class="brand-icon"> Audition
-                        </span>
-                        <span class="clip soft" style="left:33%;width:28%">
-                            <img src="Logo/Audacity.png" alt="Audacity" class="brand-icon"> Audacity
-                        </span>
-                        <span class="clip alt" style="left:64%;width:32%"><i class="fa-solid fa-headphones"></i> Prise de son & Mixage</span>
+                        <div class="lane-tools">
+                            <span class="clip">
+                                <img src="Logo/Auditionn.png" alt="" width="22" height="22" class="brand-icon">
+                                Audition
+                            </span>
+
+                            <span class="clip">
+                                <img src="Logo/Audacity.png" alt="" width="22" height="22" class="brand-icon">
+                                Audacity
+                            </span>
+                        </div>
+
+                        <div class="lane-skills">
+                            <span class="clip alt">Montage audio</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- PAO -->
                 <div class="lane-row">
-                    <div class="lane-label"><span>PAO</span></div>
+                    <div class="lane-label">
+                        <span>PAO</span>
+                    </div>
+
                     <div class="lane">
-                        <span class="clip soft" style="left:2%;width:26%">
-                            <img src="Logo/Photoshop.png" alt="Photoshop" class="brand-icon"> Photoshop
-                        </span>
-                        <span class="clip" style="left:30%;width:25%">
-                            <img src="Logo/Illustrator.png" alt="Illustrator" class="brand-icon"> Illustrator
-                        </span>
-                        <span class="clip soft" style="left:57%;width:22%">
-                            <img src="Logo/Indesign.png" alt="InDesign" class="brand-icon"> InDesign
-                        </span>
-                        <span class="clip alt" style="left:81%;width:17%">
-                            <img src="Logo/Canva.png" alt="Canva" class="brand-icon"> Canva
-                        </span>
+                        <div class="lane-tools">
+                            <span class="clip">
+                                <img src="Logo/Canva.png" alt="" width="22" height="22" class="brand-icon">
+                                Canva
+                            </span>
+
+                            <span class="clip">
+                                <img src="Logo/Illustrator.png" alt="" width="22" height="22" class="brand-icon">
+                                Illustrator
+                            </span>
+
+                            <span class="clip">
+                                <img src="Logo/Photoshop.png" alt="" width="22" height="22" class="brand-icon">
+                                Photoshop
+                            </span>
+                        </div>
+
+                        <div class="lane-skills">
+                            <span class="clip alt">Création graphique</span>
+                            <span class="clip alt">Mise en page</span>
+                        </div>
                     </div>
                 </div>
+
+            <!-- COMPÉTENCES COMPLÉMENTAIRES -->
+            <div class="skills-grid rv">
+
+                <article class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <h3>Réalisations concrètes</h3>
+                    <ul>
+                        <li>Montage d'un reportage : sous-titres, éléments graphiques, transitions et bande sonore</li>
+                        <li>Animation de graphiques sur After Effects et intégration dans une vidéo</li>
+                        <li>Création d'une affiche A4 et d'une carte VIP prête pour l'impression</li>
+                        <li>Export vidéo en H.264 / 1080p et fichiers print en CMJN, 300 dpi</li>
+                    </ul>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Connaissances numériques</h3>
+                    <ul>
+                        <li>Formats et codes des réseaux sociaux</li>
+                        <li>Principes de communication visuelle</li>
+                        <li>Création de contenus pour le web</li>
+                        <li>Mise en page et typographie</li>
+                    </ul>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-people-group"></i></div>
+                    <h3>Travail en projet</h3>
+                    <ul>
+                        <li>Travail à partir d'un brief, d'une maquette ou de rushs imposés</li>
+                        <li>Travail en équipe sur un projet de groupe</li>
+                        <li>Respect des contraintes de format et d'export</li>
+                        <li>Prise en compte des retours et amélioration d'un projet</li>
+                    </ul>
+                </article>
+
             </div>
-                <!-- COMPÉTENCES COMPLÉMENTAIRES -->
-                <div class="skills-grid rv">
 
-                    <article class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fa-solid fa-pen-ruler"></i>
-                        </div>
-                        <h3>Créatives</h3>
-                        <ul>
-                            <li>Création de contenus visuels</li>
-                            <li>Conception graphique et mise en page</li>
-                            <li>Montage et narration vidéo</li>
-                            <li>Recherche d'univers visuels</li>
-                        </ul>
-                    </article>
-
-                    <article class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fa-solid fa-globe"></i>
-                        </div>
-                        <h3>Digitales</h3>
-                        <ul>
-                            <li>Création de contenus numériques</li>
-                            <li>Publications pour les réseaux sociaux</li>
-                            <li>Adaptation aux différents formats</li>
-                            <li>Communication numérique</li>
-                        </ul>
-                    </article>
-
-                    <article class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fa-solid fa-people-group"></i>
-                        </div>
-                        <h3>Professionnelles</h3>
-                        <ul>
-                            <li>Travail en équipe</li>
-                            <li>Autonomie et organisation</li>
-                            <li>Gestion de projet</li>
-                            <li>Rigueur et souci du détail</li>
-                        </ul>
-                    </article>
-                </div>
         </div>
     </section>
 
@@ -200,37 +268,69 @@
         <div class="wrap">
             <div class="sec-head rv">
                 <div class="eyebrow">Projets MMI</div>
-                <h2>Mes réalisations, <b>de l'idée au rendu.</b></h2>
+                <h2>Mes projets, <b>réalisés au fil de ma formation.</b></h2>
             </div>
-            
+
             <div class="proj-grid grid-3">
-                <!-- PROJET 1 : VIDÉO (Miniature YouTube 16:9 native) -->
-                <button class="card c-afp rv" data-p="afp">
-                    <div class="media v-youtube-thumb">
+                <!-- PROJET 0 : DATA VIZ -->
+                <article class="card c-data rv">
+                    <div class="media v-data" aria-hidden="true">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <span>DATA VIZ · MOTION DESIGN</span>
+                    </div>
+                    <div class="meta">
+                        <span class="pill">Vidéo</span>
+                        <span class="pill">Motion design</span>
+                        <span class="pill">After Effects</span>
+                    </div>
+                    <h3><button type="button" class="card-btn" data-p="data">Les jeunes et les réseaux sociaux - Data viz</button></h3>
+                    <span class="more" aria-hidden="true">Voir le détail →</span>
+                </article>
+
+                <!-- PROJET 1 : VIDÉO -->
+                <article class="card c-afp rv">
+                    <div class="media v-youtube-thumb" aria-hidden="true">
                         <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
                     </div>
-                    <div class="meta"><span class="pill">Vidéo</span><span class="pill">DaVinci</span></div>
-                    <h3>Montage : "Le Chat Renard" (Style AFP)</h3><span class="more">Voir le détail →</span>
-                </button>
-                
+                    <div class="meta">
+                        <span class="pill">Vidéo</span>
+                        <span class="pill">Montage</span>
+                        <span class="pill">DaVinci Resolve</span>
+                    </div>
+                    <h3><button type="button" class="card-btn" data-p="afp">Le Chat Renard - Montage vidéo</button></h3>
+                    <span class="more" aria-hidden="true">Voir le détail →</span>
+                </article>
+
                 <!-- PROJET 2 : AFFICHE -->
-                <button class="card c-aff rv" data-p="aff">
+                <article class="card c-aff rv">
                     <div class="media v-aff">
-                        <div style="background-image: url('Projets/Affiche.png'); background-size: cover; background-position: top center; width: 100%; height: 100%; border-radius: 8px;"></div>
+                        <img class="thumb-img" src="Projets/Affiche.png" alt="Affiche pour le Musée des Arts d'Afrique et d'Asie de Vichy" loading="lazy" decoding="async">
                     </div>
-                    <div class="meta"><span class="pill">Graphisme</span></div>
-                    <h3>Affiche - Musée d'Afrique et d'Asie</h3><span class="more">Voir le détail →</span>
-                </button>
-                
+                    <div class="meta">
+                        <span class="pill">Graphisme</span>
+                        <span class="pill">Affiche</span>
+                        <span class="pill">Canva</span>
+                    </div>
+                    <h3><button type="button" class="card-btn" data-p="aff">Affiche - Musée des Arts d'Afrique et d'Asie</button></h3>
+                    <span class="more" aria-hidden="true">Voir le détail →</span>
+                </article>
+
                 <!-- PROJET 3 : CARTE VIP -->
-                <button class="card c-cine rv" data-p="cine">
+                <article class="card c-cine rv">
                     <div class="media v-cine">
-                        <div style="background-image: url('Projets/Recto.png'); background-size: cover; background-position: center; width: 70%; aspect-ratio: 85/55; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"></div>
+                        <img class="thumb-card" src="Projets/Recto.png" alt="Recto de la carte VIP Digital Ciné-Pass" loading="lazy" decoding="async">
                     </div>
-                    <div class="meta"><span class="pill">Vectoriel</span><span class="pill">Illustrator</span></div>
-                    <h3>Carte VIP "Digital Ciné-Pass"</h3><span class="more">Voir le détail →</span>
-                </button>
+                    <div class="meta">
+                        <span class="pill">Graphisme</span>
+                        <span class="pill">Illustrator</span>
+                        <span class="pill">Print</span>
+                    </div>
+                    <h3><button type="button" class="card-btn" data-p="cine">Digital Ciné-Pass - Carte VIP</button></h3>
+                    <span class="more" aria-hidden="true">Voir le détail →</span>
+                </article>
             </div>
+
+            <noscript><p class="noscript">JavaScript est désactivé : la vidéo du projet « Le Chat Renard » est visible sur <a href="https://www.youtube.com/watch?v=tVxsfvPUwOw" target="_blank" rel="noopener">YouTube</a>.</p></noscript>
         </div>
     </section>
 
@@ -241,40 +341,23 @@
                 <div class="eyebrow">Parcours</div>
                 <h2>D'où je <b>viens.</b></h2>
             </div>
-            
+
             <div class="parcours-grid">
                 <div class="path-col">
                     <h3 class="path-title">Formation</h3>
                     <div class="path">
                         <div class="pt rv">
-                            <div class="pt-logo" style="background-image: url('Logo/UCA.png');"></div>
+                            <div class="pt-logo logo-uca" aria-hidden="true"></div>
                             <span class="when">2025 - 2028 · En cours</span>
                             <h4>BUT Métiers du Multimédia et de l'Internet</h4>
                             <p>IUT Clermont Auvergne, site de Vichy (03). Parcours Création numérique.</p>
                         </div>
+
                         <div class="pt rv">
-                            <div class="pt-logo" style="background-image: url('Logo/Al.png');"></div>
+                            <div class="pt-logo logo-al" aria-hidden="true"></div>
                             <span class="when">Obtenu en 2025</span>
                             <h4>Bac général, mention assez bien</h4>
                             <p>Lycée Albert Londres, Cusset (03).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="path-col">
-                    <h3 class="path-title">Expérience pro</h3>
-                    <div class="path">
-                        <div class="pt rv">
-                            <div class="pt-logo" style="background-image: url('Logo/daniel.png');"></div>
-                            <span class="when">Mars 2022</span>
-                            <h4>Daniel Moquet signe vos allées</h4>
-                            <p>Entreprise Dumange (03). Une première immersion en entreprise, éloignée du numérique, mais qui m'a forgé une véritable rigueur et le sens de l'organisation au quotidien.</p>
-                        </div>
-                        <div class="pt rv">
-                            <div class="pt-logo" style="background-image: url('Logo/QC.png');"></div>
-                            <span class="when">Février 2021</span>
-                            <h4>Service Espaces Verts de Cusset</h4>
-                            <p>Découverte du travail de terrain. J'y ai appris l'importance de la collaboration et du respect des consignes, des bases essentielles pour le travail en équipe d'aujourd'hui.</p>
                         </div>
                     </div>
                 </div>
@@ -286,32 +369,38 @@
     <section id="contact" class="contact">
         <div class="wrap">
             <div class="eyebrow">Contact</div>
-            <h2>Discutons <b>ensemble.</b></h2>
+            <h2>Un projet, <b>une question ?</b></h2>
+
             <p class="contact-desc">
-                Intéressé par mon profil ou par l'un de mes projets ? Je serais ravi d'échanger avec vous pour discuter d'une opportunité ou simplement faire connaissance. Retrouvez également mon CV et mon parcours professionnel ci-dessous.
+                <strong>Je recherche un stage de 2 mois, du 1er février au 26 mars 2027.</strong>
+                Je serais ravi d'échanger sur mon parcours, mes projets ou ce que je pourrais
+                apporter à votre équipe. Écrivez-moi, ou retrouvez mon CV ci-dessous.
             </p>
-            
+
             <div class="mail-row">
                 <a href="mailto:contact@ryandejoux.fr" class="mail-link">
                     contact@ryandejoux.fr <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
-            
+
             <div class="btns">
                 <a class="btn solid" href="CV.pdf" target="_blank" rel="noopener">
                     <i class="fa-solid fa-file-pdf"></i> Mon CV (PDF)
                 </a>
-                <a class="btn" href="https://www.linkedin.com/in/ryan-dejoux" target="_blank" rel="noopener">
+
+                <a class="btn" href="https://www.linkedin.com/in/ryan-dejoux"
+                target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-linkedin-in"></i> LinkedIn
                 </a>
+
                 <a class="btn" href="https://www.instagram.com/ryand.pro/"
                 target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-instagram"></i> Instagram
                 </a>
             </div>
-            
+
             <div class="foot">
-                <span>© 2026 Ryan Dejoux — Création Audiovisuelle & Multimédia</span>
+                <span>© 2026 Ryan Dejoux — Création Numérique &amp; Audiovisuel</span>
                 <span>Cusset · Vichy (03)</span>
             </div>
         </div>
@@ -319,7 +408,7 @@
 </main>
 
 <dialog id="dlg" aria-labelledby="dt">
-    <button class="d-close" id="dx" aria-label="Fermer">✕</button>
+    <button type="button" class="d-close" id="dx" aria-label="Fermer">✕</button>
     <div class="d-layout">
         <div class="d-media-pane" id="d-media"></div>
         <div class="d-text-pane">
