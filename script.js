@@ -50,6 +50,12 @@
                 toggleMenu(true);
             }
         });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 850) {
+                toggleMenu(true);
+            }
+        });
     }
 
 
@@ -75,6 +81,7 @@
 
     if (cv) {
         var ctx = cv.getContext('2d');
+        if (!ctx) return;
         var W = 0, H = 0, dpr = 1, mx = -1;
         var animationId = null;
         var isVisible = false;
@@ -225,48 +232,66 @@
     /* 4. Gestion des Projets et Modales */
     var P = {
         afp: {
-            t: "Montage inspiré de l'AFP",
-            m: ['Vidéo', 'Montage', 'Rythme'],
-            /* Intégration du lecteur YouTube iframe (ID de ta vidéo : tVxsfvPUwOw) */
+            t: "Le Chat Renard - Montage vidéo",
+            m: ['Vidéo', 'Montage', 'DaVinci Resolve'],
             video: true,
             imgHtml: '<div class="yt-wrap"><iframe src="https://www.youtube-nocookie.com/embed/tVxsfvPUwOw?rel=0&playsinline=1" title="Montage : Le Chat Renard (style AFP)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>',
             d: [
-                ['Contexte (BUT MMI)', "Exercice pédagogique d'assemblage et de rythme, à partir d'une banque de véritables rushs fournis."],
-                ['Mon rôle', "Conception et réalisation finale du montage. Orientation de la direction artistique sur les codes stricts du reportage d'actualité de l'Agence France-Presse (dynamisme, concision, objectivité visuelle)."],
-                ['Contraintes', "Alternance de séquences informatives et d'interviews posées avec audio de fond. Format MP4 H264, 1920x1080p."],
-                ['Logiciel', "DaVinci Resolve"]
+                ['Contexte', "Exercice réalisé dans le cadre du BUT MMI à partir d'une vidéo MP4 regroupant l'ensemble des rushs fournis. Le sujet consistait à réaliser un montage d'actualité, et j'ai choisi de m'inspirer des formats de reportage de l'Agence France-Presse (AFP)."],
+                ['Travail réalisé', "Montage individuel, de la sélection des passages utiles dans la vidéo source jusqu'au reportage final. J'ai réorganisé les séquences retenues, puis travaillé l'habillage : sous-titres, éléments graphiques, transitions et bande sonore."],
+                ["Ce que j'en retiens", "Partir d'une seule vidéo de rushs oblige à trier avant de monter. J'ai appris à ne garder que l'essentiel, puis à donner du rythme au reportage grâce aux transitions, aux sous-titres et à la musique."],
+                ['Contraintes techniques', "Export au format MP4 (H.264), en 1920 × 1080."],
+                ['Logiciel utilisé', "DaVinci Resolve"]
             ]
         },
+
         aff: {
-            t: "Affiche - Musée d'Afrique",
-            m: ['Graphisme', 'Typographie'],
-            imgHtml: '<div style="background-image: url(\'Projets/Affiche.png\'); background-size: contain; background-repeat: no-repeat; background-position: center; width: 100%; height: 100%; min-height:300px;"></div>',
+            t: "Affiche - Musée des Arts d'Afrique et d'Asie",
+            m: ['Graphisme', 'Affiche', 'Canva'],
+            imgHtml: '<img class="m-img" src="Projets/Affiche.png" alt="Affiche pour le Musée des Arts d\'Afrique et d\'Asie de Vichy">',
             d: [
-                ['Contexte', "Commande fictive intégrée à un module de culture artistique, sous la direction de la directrice du Musée des Arts d'Afrique et d'Asie de Vichy. Thème : « Japon - Kimonos de saison »."],
-                ['Intention', "Création d'une affiche qui mettent en avant le thème de l'exposition, et donne envie d'aller la voir."],
-                ['Cible & Format', "Tous publics / Format A4 (21 x 29,7 cm)"],
-                ['Logiciels', "Photoshop, Canva"]
+                ['Contexte', "Projet réalisé dans le cadre d'un module de culture artistique du BUT MMI, autour d'une exposition fictive intitulée « Japon - Kimonos de saison », pour le Musée des Arts d'Afrique et d'Asie de Vichy."],
+                ['Travail réalisé', "Conception de l'affiche avec une grande liberté sur la composition et les choix visuels. J'ai cherché à mettre en valeur le thème de l'exposition tout en organisant les informations pour que l'affiche reste lisible et attractive."],
+                ["Ce que j'en retiens", "Une affiche doit se comprendre en quelques secondes. Ce projet m'a appris à construire une composition autour d'un thème culturel et à hiérarchiser les informations dans un format imposé."],
+                ['Format', "Affiche A4 (21 × 29,7 cm)."],
+                ['Logiciel utilisé', "Canva"]
             ]
         },
+
         cine: {
-            t: "Carte VIP : Digital Ciné-Pass",
-            m: ['Illustration Vectorielle', 'Print'],
-            imgHtml: '<div style="display: flex; flex-direction: column; gap: 20px; align-items: center; justify-content: flex-start; width: 100%; height: 100%; overflow-y: auto; padding: 10px 0;"><img src="Projets/Recto.png" style="max-width: 90%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Recto"><img src="Projets/Verso.png" style="max-width: 90%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Verso"></div>',
+            t: "Digital Ciné-Pass - Carte VIP",
+            m: ['Graphisme', 'Illustrator', 'Print'],
+            imgHtml: '<div class="m-stack"><img class="m-img-card" src="Projets/Recto.png" alt="Recto de la carte VIP Digital Ciné-Pass"><img class="m-img-card" src="Projets/Verso.png" alt="Verso de la carte VIP Digital Ciné-Pass"></div>',
             d: [
-                ['Le Projet', "Conception d'une carte fictive de membre VIP annuelle pour un réseau de cinéma. Le but était d'utiliser la transition chromatique pour générer du volume sans redessiner."],
-                ['Texture & Identité', "Création d'un motif répétitif (pellicule) en fond avec faible opacité. Mise en page des données VIP et d'un QR code."],
-                ['Contraintes', "Carte de visite 85 x 55 mm (1000 x 685 pixels). Normes d'impression : CMJN, 300 dpi, 5 mm de fond perdu."],
-                ['Logiciel', "Adobe Illustrator"]
+                ['Contexte', "Projet réalisé dans le cadre du BUT MMI : une carte de membre VIP annuelle fictive pour un réseau de cinémas, le Digital Ciné-Pass, à créer à partir d'une maquette fournie."],
+                ['Travail réalisé', "Réalisation sur Adobe Illustrator à partir de la maquette imposée. J'ai travaillé les couleurs et les dégradés pour donner du volume, créé un motif répétitif inspiré de la pellicule en arrière-plan avec une faible opacité, puis intégré les informations de la carte et un QR code."],
+                ["Ce que j'en retiens", "C'est le projet où j'ai découvert les contraintes d'un support imprimé : CMJN, résolution et fond perdu. J'y ai aussi approfondi les dégradés et les motifs sur Illustrator."],
+                ['Contraintes techniques', "Format carte de visite de 85 × 55 mm. Préparation du document pour l'impression en CMJN, à 300 dpi, avec 5 mm de fond perdu."],
+                ['Logiciel utilisé', "Adobe Illustrator"]
+            ]
+        },
+
+        data: {
+            t: "Les jeunes et les réseaux sociaux - Data viz",
+            m: ['Vidéo', 'Motion design', 'After Effects', 'DaVinci Resolve'],
+            imgHtml: '<div class="m-note"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><strong>Vidéo non diffusée</strong><span>Elle montre d\'autres étudiants : droits à l\'image du groupe.</span></div>',
+            d: [
+                ['Contexte', "Projet universitaire du BUT MMI (octobre 2026), réalisé en équipe de quatre : une vidéo de communication enrichie de visualisations de données sur les usages des réseaux sociaux chez les jeunes, à partir d'études officielles (CRÉDOC, INJEP, Arcom)."],
+                ['Travail réalisé', "J'ai animé sur After Effects les deux graphiques conçus par un membre de l'équipe sur Illustrator, puis réalisé le montage final sur DaVinci Resolve en les intégrant à la vidéo. J'ai aussi participé au tournage et aux recherches dans l'étude de l'Arcom pour préparer le script."],
+                ["Ce que j'en retiens", "Ce projet m'a appris à animer des graphiques conçus par un autre membre de l'équipe, puis à les intégrer dans un montage final. J'y ai développé mes compétences en motion design, en montage audiovisuel et en travail d'équipe."],
+                ['Contraintes', "Vidéo sous-titrée et accessible (contraste, taille des caractères, lisibilité), avec au moins deux tableaux de données présentés sous forme de graphiques animés."],
+                ['Logiciels utilisés', "After Effects, DaVinci Resolve"]
             ]
         }
+
     };
-    
-    var dlg = document.getElementById('dlg'), 
-        dt = document.getElementById('dt'), 
-        dd = document.getElementById('dd'), 
+
+    var dlg = document.getElementById('dlg'),
+        dt = document.getElementById('dt'),
+        dd = document.getElementById('dd'),
         dm = document.getElementById('dm'),
         dMedia = document.getElementById('d-media');
-        
+
     function openModal(k) {
         var o = P[k];
         if (!o) return;
@@ -277,11 +302,11 @@
         dd.innerHTML = o.d.map(function(r) { return '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>'; }).join('');
         dlg.showModal();
     }
-    
-    document.querySelectorAll('.card').forEach(function(c) {
+
+    document.querySelectorAll('.card-btn').forEach(function(c) {
         c.addEventListener('click', function() { openModal(c.getAttribute('data-p')); });
     });
-    
+
     function closeModal() { dlg.close(); }
     /* Se déclenche aussi avec la touche Échap : vider la modale coupe la vidéo YouTube */
     dlg.addEventListener('close', function() {
